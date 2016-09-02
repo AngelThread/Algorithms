@@ -13,12 +13,10 @@ public class BubbleSorting {
 			
 			for (int j = 0; j < integerArray.length-1; j++) {
 				
-				if(integerArray[j]> integerArray[j+1]){
-					
+				if(integerArray[j]> integerArray[j+1]){					
 					tempTap =  integerArray[j+1];
 					integerArray[j+1] = integerArray[j];
-					integerArray[j] = tempTap;
-					
+					integerArray[j] = tempTap;					
 				}
 				
 			}
