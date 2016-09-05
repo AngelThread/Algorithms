@@ -47,11 +47,11 @@ public class TeatForSortings {
 	
 	@Test
 	public void checkSortByInsertion(){
-		int[] actualArray = new int[] { 12, 7, 6, 3, 1 };
-		int[] expectedArray = new int[] { 1, 3, 6, 7, 12 };
+		Integer[] actualArray = new Integer[] { 12, 7, 6, 3, 1 };
+		Integer[] expectedArray = new Integer[] { 1, 3, 6, 7, 12 };
 
-		InsertionSorting insertionSort = new InsertionSorting();
-		insertionSort.sortByInsertion(actualArray);
+		InsertionSorting<Integer> insertionSort = new InsertionSorting<Integer>();
+		insertionSort.sort(actualArray);
 		for (int i = 0; i < actualArray.length; i++) {
 			System.out.println(actualArray[i]);
 		}
@@ -59,5 +59,21 @@ public class TeatForSortings {
 		assertArrayEquals(expectedArray, actualArray);
 		
 	}
+	@Test
+	public void checkWithGenericsInsertionSort(){
+		Double[] actualArray = new Double[] { 12.00,1.00 ,7.00};
+		Double[] expectedArray = new Double[] { 1.00,7.00,12.00 };
+
+		InsertionSorting<Double> insertionSort = new InsertionSorting<Double>();
+		insertionSort.sort(actualArray);
+		for (int i = 0; i < actualArray.length; i++) {
+			System.out.println(actualArray[i]);
+		}
+
+		assertArrayEquals(expectedArray, actualArray);
+		
+	}
+
+	
 
 }
