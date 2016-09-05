@@ -3,6 +3,7 @@ package com.unit.test.sort;
 import org.junit.Test;
 
 import com.algorithms.sorting.BubbleSorting;
+import com.algorithms.sorting.InsertionSorting;
 import com.algorithms.sorting.SelectionSorting;
 
 import static org.junit.Assert.*;
@@ -40,6 +41,23 @@ public class TeatForSortings {
 
 		assertArrayEquals(expectedArray, actualArray);
 
+	}
+	
+	
+	
+	@Test
+	public void checkSortByInsertion(){
+		int[] actualArray = new int[] { 12, 7, 6, 3, 1 };
+		int[] expectedArray = new int[] { 1, 3, 6, 7, 12 };
+
+		InsertionSorting insertionSort = new InsertionSorting();
+		insertionSort.sortByInsertion(actualArray);
+		for (int i = 0; i < actualArray.length; i++) {
+			System.out.println(actualArray[i]);
+		}
+
+		assertArrayEquals(expectedArray, actualArray);
+		
 	}
 
 }
