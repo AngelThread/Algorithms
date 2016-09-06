@@ -9,11 +9,27 @@ public class LinkedList {
 		this.headNode = newNode;
 		return newNode;
 	}
+	
+	public int length() {
+	int length = 0;
+	Node currentNode = this.headNode;
+	while(currentNode != null){
+		length++;
+		currentNode = currentNode.getNextNode();
+	}
+		
+	return length;	
+	}
 
 	public Node addAtHead(Node newNode) {
 		newNode.setNextNode(this.headNode);
 		this.headNode = newNode;
 		return newNode;
+	}
+	
+	public void deleteFromHead(){
+		if(this.headNode != null)
+		this.headNode = this.headNode.getNextNode();		
 	}
 
 	public Node getHeadNode() {

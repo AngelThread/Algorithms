@@ -15,6 +15,15 @@ public class LinkedListSample {
 	linkedList.addAtHead(node1);
 
 	System.out.println(linkedList.toString());
+	System.out.println("Length: "+linkedList.length());
+	linkedList.deleteFromHead();
+	System.out.println("Length after delete from head: "+linkedList.length());
+	linkedList.deleteFromHead();
+	linkedList.deleteFromHead();
+	linkedList.deleteFromHead();
+	linkedList.deleteFromHead();
+	linkedList.deleteFromHead();
+	System.out.println("Length after delete from head: "+linkedList.length());
 
 	}
 }
