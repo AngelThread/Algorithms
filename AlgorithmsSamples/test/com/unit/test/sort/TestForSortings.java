@@ -8,7 +8,7 @@ import com.algorithms.sorting.SelectionSorting;
 
 import static org.junit.Assert.*;
 
-public class TeatForSortings {
+public class TestForSortings {
 
 	@Test
 	public void checkBubbleIsWorking() {
