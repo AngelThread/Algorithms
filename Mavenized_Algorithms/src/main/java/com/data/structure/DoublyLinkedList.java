@@ -2,55 +2,75 @@ package com.data.structure;
 
 public class DoublyLinkedList {
 
-	private Node head;
-	private Node tail;
+	private DoublyNode head;
 
-	public Node getHead() {
+	public void addNodeAtHead(int data) {
+		DoublyNode doublyNode = new DoublyNode(data);
+		doublyNode.setNextNode(this.head);
+		this.head = doublyNode;
+	}
+
+	public DoublyNode getNextNode() {
 		return head;
 	}
 
-	public void setHead(Node head) {
-		this.head = head;
+	public void setNextNode(DoublyNode nextNode) {
+		this.head = nextNode;
 	}
 
-	public Node getTail() {
-		return tail;
+	public DoublyNode[] getArrayFormat() {
+
+		DoublyNode[] doublyNodeArray = new DoublyNode[this.getLengthOfDoublyList()];
+		DoublyNode currentDoublyNode = this.head;
+		int index = 0;
+		while (currentDoublyNode != null) {
+			doublyNodeArray[index] = currentDoublyNode;
+			currentDoublyNode = currentDoublyNode.getNextNode();
+			index++;
+
+		}
+		return doublyNodeArray;
 	}
 
-	public void setTail(Node tail) {
-		this.tail = tail;
-	}
+	public Integer[] getArrayFormatAsInteger() {
 
-	public void insertAtTail(int data) {
-
-		Node newNode = new Node(data);
-
-		if (this.head == null)
-			this.head = newNode;
-
-		if (this.tail != null)
-			this.tail.setNextNode(newNode);
-			this.tail = newNode;
+		Integer[] doublyNodeArray = new Integer[this.getLengthOfDoublyList()];
+		DoublyNode currentDoublyNode = this.head;
+		int index = 0;
+		while (currentDoublyNode != null) {
+			doublyNodeArray[index] = currentDoublyNode.getData();
+			currentDoublyNode = currentDoublyNode.getNextNode();
+			index++;
+		}
+		return doublyNodeArray;
 	}
 
 	@Override
 	public String toString() {
 
-		StringBuilder strBuilder = new StringBuilder();
-		strBuilder.append("DoublyLinkedKist: { ");
+		StringBuilder strBuilder = new StringBuilder("DoublyLinkedList :{ ");
+		DoublyNode currentDoublyNode = this.head;
 
-		Node currentNode = this.head;
-
-		while (currentNode != null) {
-			strBuilder.append(currentNode.getData());
-			currentNode = currentNode.getNextNode();
-			strBuilder.append(",");
+		while (currentDoublyNode != null) {
+			strBuilder.append(currentDoublyNode);
+			currentDoublyNode = currentDoublyNode.getNextNode();
+			if (currentDoublyNode != null)
+				strBuilder.append(",");
 		}
+		strBuilder.append(" }");
+		return strBuilder.toString();
+	}
 
-		String strBuilderString = strBuilder.substring(0, strBuilder.length() - 1);
-		strBuilderString = strBuilderString + " }";
+	public int getLengthOfDoublyList() {
+		int length = 0;
+		DoublyNode currentDoublyNode = this.head;
 
-		return strBuilderString;
+		while (currentDoublyNode != null) {
+			length++;
+			currentDoublyNode = currentDoublyNode.getNextNode();
+		}
+		return length;
+
 	}
 
 }

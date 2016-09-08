@@ -45,19 +45,19 @@ public class LinkedListTest {
 	@Test	
 	public void testDoublyLinkedList(){
 		
-		DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+		DoublyEndedList doublyEndedList = new DoublyEndedList();
 		Node node1 = new Node(1);
 		Node node2 = new Node(2);
 		Node node3 = new Node(3);
 		Node node4 = new Node(4);
 		
-		doublyLinkedList.insertAtTail(node1.getData());
-		doublyLinkedList.insertAtTail(node2.getData());
-		doublyLinkedList.insertAtTail(node3.getData());
-		doublyLinkedList.insertAtTail(node4.getData());
+		doublyEndedList.insertAtTail(node1.getData());
+		doublyEndedList.insertAtTail(node2.getData());
+		doublyEndedList.insertAtTail(node3.getData());
+		doublyEndedList.insertAtTail(node4.getData());
 		List<Integer> nodeList = new ArrayList<Integer>();
 		
-		Node currentNode = doublyLinkedList.getHead();
+		Node currentNode = doublyEndedList.getHead();
 		while (currentNode != null) {
 			nodeList.add(currentNode.getData());
 			currentNode = currentNode.getNextNode();
