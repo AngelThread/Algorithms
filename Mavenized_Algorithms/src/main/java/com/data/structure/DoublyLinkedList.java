@@ -6,15 +6,20 @@ public class DoublyLinkedList {
 
 	public void addNodeAtHead(int data) {
 		DoublyNode doublyNode = new DoublyNode(data);
+		if(this.head != null)
+		{
+			this.head.setPreNode(doublyNode);			
+		}
 		doublyNode.setNextNode(this.head);
 		this.head = doublyNode;
+		
 	}
 
-	public DoublyNode getNextNode() {
+	public DoublyNode getHeadNode() {
 		return head;
 	}
 
-	public void setNextNode(DoublyNode nextNode) {
+	public void setHeadNode(DoublyNode nextNode) {
 		this.head = nextNode;
 	}
 
