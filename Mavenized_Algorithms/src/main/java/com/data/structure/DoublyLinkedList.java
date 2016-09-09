@@ -104,8 +104,7 @@ public class DoublyLinkedList {
 				}
 
 			}
-			if (count == this.getLengthOfDoublyList())
-				break MAIN;
+			
 			currentDoublyNode = currentDoublyNode.getNextNode();
 			count++;
 
@@ -120,7 +119,9 @@ public class DoublyLinkedList {
 	}
 	
 	private void mergeNodetoTheNewPlace(DoublyNode currentNode, DoublyNode newPlacePreNode){	
+		if(currentNode == null) return ;
 		if(newPlacePreNode != null){
+		if(newPlacePreNode.getNextNode() == null) return;
 		DoublyNode newNextNeighbour = newPlacePreNode.getNextNode();		
 		currentNode.setNextNode(newNextNeighbour);
 		newPlacePreNode.setNextNode(currentNode);
