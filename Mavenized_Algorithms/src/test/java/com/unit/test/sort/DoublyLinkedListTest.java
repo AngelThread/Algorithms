@@ -14,15 +14,19 @@ public class DoublyLinkedListTest {
 		doublyLinkedList.addNodeAtHead(1);
 		doublyLinkedList.addNodeAtHead(2);
 		doublyLinkedList.addNodeAtHead(3);
-		System.out.println(doublyLinkedList.getHeadNode() + " / 3");
-		System.out.println(doublyLinkedList.getHeadNode().getNextNode() + " / 2  ");
-		System.out.println(doublyLinkedList.getHeadNode().getNextNode().getPreNode() + " / 3");
-		System.out.println(doublyLinkedList.getHeadNode().getNextNode().getNextNode() + " / 1 ");
-
+	
 		assertArrayEquals(new Integer [] {3,2,1}, doublyLinkedList.getArrayFormatAsInteger());		
-		
-		
-		
+	}
+	
+	@Test
+	public void testOfDoublyLinkedListSorting(){
+		DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+		doublyLinkedList.addNodeAtHead(1);
+		doublyLinkedList.addNodeAtHead(2);
+		doublyLinkedList.addNodeAtHead(3);
+		doublyLinkedList.sortDoublyLinkedList();
+
+		assertArrayEquals(new Integer [] {1,2,3}, doublyLinkedList.getArrayFormatAsInteger());
 	}
 
 }

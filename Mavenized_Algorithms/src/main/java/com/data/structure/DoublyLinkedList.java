@@ -78,4 +78,59 @@ public class DoublyLinkedList {
 
 	}
 
+	public void sortDoublyLinkedList() {
+
+		DoublyNode currentDoublyNode = this.head;
+		int count = 0;
+		MAIN: while (currentDoublyNode != null) {
+
+			if (currentDoublyNode == this.head) {
+				currentDoublyNode = currentDoublyNode.getNextNode();
+				continue MAIN;
+			}
+
+			DoublyNode doublyPreNode = currentDoublyNode;
+
+			INNER: while (doublyPreNode != null) {
+
+				doublyPreNode = doublyPreNode.getPreNode();
+
+				// Old Place implementation
+				if ((doublyPreNode == null) || doublyPreNode.getData() < currentDoublyNode.getData()) { // Right place for current node.
+
+					aggregateOldPlace(currentDoublyNode.getPreNode(), currentDoublyNode.getNextNode());
+					mergeNodetoTheNewPlace(currentDoublyNode, doublyPreNode);
+					break INNER;
+				}
+
+			}
+			if (count == this.getLengthOfDoublyList())
+				break MAIN;
+			currentDoublyNode = currentDoublyNode.getNextNode();
+			count++;
+
+		}
+
+	}
+	
+	private void aggregateOldPlace(DoublyNode cuurrentPreNode, DoublyNode currentNextNode){
+		if(currentNextNode != null)
+		currentNextNode.setPreNode(cuurrentPreNode); // Current Node's next node's pre-node  is set as current node's pre-node
+		cuurrentPreNode.setNextNode(currentNextNode);  // Current Node's next-node  is set as current node's pre-node
+	}
+	
+	private void mergeNodetoTheNewPlace(DoublyNode currentNode, DoublyNode newPlacePreNode){	
+		if(newPlacePreNode != null){
+		DoublyNode newNextNeighbour = newPlacePreNode.getNextNode();		
+		currentNode.setNextNode(newNextNeighbour);
+		newPlacePreNode.setNextNode(currentNode);
+		newNextNeighbour.setPreNode(currentNode);
+		currentNode.setPreNode(newPlacePreNode);
+		}else{
+			currentNode.setNextNode(this.head);
+			this.head.setPreNode(currentNode);
+			this.head =currentNode;  
+			currentNode.setPreNode(null);
+		}
+	}
 }
