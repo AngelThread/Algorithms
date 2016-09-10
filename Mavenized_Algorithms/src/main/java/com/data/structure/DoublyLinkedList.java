@@ -81,7 +81,6 @@ public class DoublyLinkedList {
 	public void sortDoublyLinkedList() {
 
 		DoublyNode currentDoublyNode = this.head;
-		int count = 0;
 		MAIN: while (currentDoublyNode != null) {
 
 			if (currentDoublyNode == this.head) {
@@ -92,22 +91,19 @@ public class DoublyLinkedList {
 			DoublyNode doublyPreNode = currentDoublyNode;
 
 			INNER: while (doublyPreNode != null) {
-
 				doublyPreNode = doublyPreNode.getPreNode();
-
 				// Old Place implementation
 				if ((doublyPreNode == null) || doublyPreNode.getData() < currentDoublyNode.getData()) { // Right place for current node.
-
+					if((doublyPreNode != null) && doublyPreNode.getNextNode() == currentDoublyNode && currentDoublyNode.getNextNode() == null )
+					{ // If the last element in the linked list right order already there was a bug and this element would be lost.
+						break INNER;
+					} 
 					aggregateOldPlace(currentDoublyNode.getPreNode(), currentDoublyNode.getNextNode());
 					mergeNodetoTheNewPlace(currentDoublyNode, doublyPreNode);
 					break INNER;
 				}
-
 			}
-			
 			currentDoublyNode = currentDoublyNode.getNextNode();
-			count++;
-
 		}
 
 	}
@@ -116,7 +112,8 @@ public class DoublyLinkedList {
 		if(currentNextNode != null)
 		currentNextNode.setPreNode(cuurrentPreNode); // Current Node's next node's pre-node  is set as current node's pre-node
 		cuurrentPreNode.setNextNode(currentNextNode);  // Current Node's next-node  is set as current node's pre-node
-	}
+		
+	}	
 	
 	private void mergeNodetoTheNewPlace(DoublyNode currentNode, DoublyNode newPlacePreNode){	
 		if(currentNode == null) return ;
