@@ -25,13 +25,16 @@ public class DoublyLinkedListTest {
 		doublyLinkedList.addNodeAtHead(1);
 		doublyLinkedList.addNodeAtHead(2);
 		doublyLinkedList.addNodeAtHead(21); // There is a bug
-		doublyLinkedList.addNodeAtHead(7);
+		doublyLinkedList.addNodeAtHead(71);
 		doublyLinkedList.addNodeAtHead(4);
 		doublyLinkedList.addNodeAtHead(5);
+		doublyLinkedList.addNodeAtHead(15);
 		doublyLinkedList.addNodeAtHead(3);
+		doublyLinkedList.addNodeAtHead(51);
+
 		doublyLinkedList.sortDoublyLinkedList();
 		System.out.println(doublyLinkedList);
-		//assertArrayEquals(new Integer [] {1,2,3,4,5,21}, doublyLinkedList.getArrayFormatAsInteger());
+		assertArrayEquals(new Integer [] {1,2,3,4,5,13,15,21,51,71}, doublyLinkedList.getArrayFormatAsInteger());
 	}
 
 }
