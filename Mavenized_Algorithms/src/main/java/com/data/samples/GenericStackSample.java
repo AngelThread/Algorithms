@@ -1,4 +1,6 @@
-package com.data.structure;
+package com.data.samples;
+
+import com.data.structure.Stack;
 
 public class GenericStackSample {
 	
