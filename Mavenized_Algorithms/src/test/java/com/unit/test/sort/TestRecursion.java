@@ -55,3 +55,4 @@ public class TestRecursion {
 		assertEquals(5, calculated);
 	}
 }
+
