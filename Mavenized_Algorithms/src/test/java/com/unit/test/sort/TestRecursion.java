@@ -8,7 +8,7 @@ import com.algorithms.recursion.Factorial;
 import static org.junit.Assert.*;
 
 public class TestRecursion {
-	//Test
+	
 	@Test
 	public void testFactorialBasic(){
 		Factorial factorial = new Factorial ();
@@ -55,3 +55,4 @@ public class TestRecursion {
 		assertEquals(5, calculated);
 	}
 }
+
