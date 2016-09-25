@@ -25,5 +25,8 @@ public class TreeNode {
 	public void setLeft(TreeNode left) {
 		this.left = left;
 	}
+	public void setData(Integer data) {
+		this.data = data;
+	}
 
 }
