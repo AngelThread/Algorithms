@@ -7,7 +7,9 @@ public class BinarySearchTree {
 	public void insert(TreeNode data) {
 		insert(data, this.root);
 	}
-
+	public void insert(Integer data) {
+		insert(new TreeNode(data), this.root);
+	}
 	private void insert(TreeNode data, TreeNode root) {
 		if (this.root == null) {
 			this.root = data;
@@ -27,11 +29,12 @@ public class BinarySearchTree {
 			}
 		}
 	}
+	
+	public TreeNode find(Integer data){
+		return find(data, this.root);
+	}
 
-	public TreeNode find(Integer data, TreeNode root) {
-
-		if (root == null)
-			root = this.root;
+	private TreeNode find(Integer data, TreeNode root) {
 
 		if (data == root.getData())
 			return root;
