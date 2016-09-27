@@ -56,4 +56,41 @@ public class BinarySearchTreeTest {
 		assertEquals(new Integer(40),binarySearchT.find(40).getData());
 		
 	}
+	@Test
+	public void testAttemptToDeleteEmptyTree(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		assertEquals(null, binarySearchT.delete(0));
+	}
+	@Test
+	public void deleteLeaf(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(20);
+		binarySearchT.insert(45);
+		binarySearchT.insert(38);
+		assertEquals(new Integer(38).intValue(), binarySearchT.delete(38).getData().intValue());
+	}
+	@Test
+	public void deleteSubNode(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(20);
+		binarySearchT.insert(45);
+		binarySearchT.insert(38);
+		binarySearchT.insert(47);
+		binarySearchT.delete(38);
+		assertEquals(new Integer(45), binarySearchT.getRoot().getRight().getData());
+	}
+	@Test
+	public void deleteSubNodeWithRightLeaf(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(20);
+		binarySearchT.insert(45);
+		binarySearchT.insert(38);
+		binarySearchT.insert(47);
+		binarySearchT.insert(54);
+
+		assertEquals(new Integer(47), binarySearchT.getRoot().getRight().getRight().getData());
+	}
 }
