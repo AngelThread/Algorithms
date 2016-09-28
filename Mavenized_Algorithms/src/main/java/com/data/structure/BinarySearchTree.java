@@ -1,5 +1,8 @@
 package com.data.structure;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinarySearchTree {
 
 	private TreeNode root;
@@ -174,5 +177,32 @@ public class BinarySearchTree {
 		if(root.getRight() !=null)
 		return getBiggestData(root.getRight());
 		return root;
+	}
+	
+	public Integer[] getDatasInOrder(){
+		List<Integer> intList = new ArrayList<Integer>();
+		getDatasInOrder(this.root, intList);
+		Integer[] intArray = intList.toArray(new Integer[0]);
+		
+		return intArray;
+	}
+
+	
+	private List<Integer> getDatasInOrder(TreeNode rootNode, List<Integer> intList ){
+		if(this.root == null) return null;
+		
+		if(rootNode.getLeft() == null && rootNode.getRight() == null){
+			intList.add(rootNode.getData());
+			return intList;
+		}
+		if(rootNode.getLeft() != null)
+		getDatasInOrder(rootNode.getLeft(), intList);
+		intList.add(rootNode.getData());
+		if(rootNode.getRight() != null)
+		getDatasInOrder(rootNode.getRight(), intList);
+
+		return intList;
+		
+		
 	}
 }
