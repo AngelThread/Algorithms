@@ -165,7 +165,7 @@ public class BinarySearchTreeTest {
 		
 		Integer[] expected = new Integer[]{18,20,22,30,38,40,45};
 		
-		assertEquals(expected, integerArary);
+		assertArrayEquals(expected, integerArary);
 	}
 
 
