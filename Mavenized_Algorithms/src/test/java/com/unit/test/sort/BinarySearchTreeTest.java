@@ -4,6 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.data.structure.BinarySearchTree;
+import com.data.structure.TreeNode;
 
 public class BinarySearchTreeTest {
 
@@ -144,5 +145,24 @@ public class BinarySearchTreeTest {
 		binarySearchT.insert(35);
 		binarySearchT.insert(48);
 		assertEquals(new Integer(48), binarySearchT.getBiggestData().getData());
+	}
+	
+	@Test
+	public void testInOrderTraversalOfBST(){
+		BinarySearchTree binaryST = new BinarySearchTree();
+
+		binaryST.insert(new TreeNode(30));
+		binaryST.insert(new TreeNode(40));
+		binaryST.insert(new TreeNode(20));
+		binaryST.insert(new TreeNode(18));
+		binaryST.insert(new TreeNode(22));
+		binaryST.insert(new TreeNode(38));
+		binaryST.insert(new TreeNode(45));
+		
+		Integer[] integerArary = binaryST.getDatasInOrder();
+		
+		Integer[] expected = new Integer[]{18,20,22,30,38,40,45};
+		
+		assertEquals(expected, integerArary);
 	}
 }
