@@ -119,4 +119,30 @@ public class BinarySearchTreeTest {
 
 		assertEquals(new Integer(20), binarySearchT.getSmallestData().getData());
 	}
+	
+	@Test
+	public void testBinarySearchTreeBiggestRoot(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		assertEquals(new Integer(30), binarySearchT.getBiggestData().getData());
+	}
+	
+	@Test
+	public void testBinarySearchTreeBiggest(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(20);
+		assertEquals(new Integer(30), binarySearchT.getBiggestData().getData());
+	}
+	
+	@Test
+	public void testBinarySearchTreeBiggestData(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(20);
+		binarySearchT.insert(40);
+		binarySearchT.insert(35);
+		binarySearchT.insert(48);
+		assertEquals(new Integer(48), binarySearchT.getBiggestData().getData());
+	}
 }

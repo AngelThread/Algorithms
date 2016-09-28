@@ -59,5 +59,6 @@ public class SampleBinarySearchTree {
 
 		System.out.println("BinarySearchTree's the smallest data "+binaryST.getSmallestData().getData());
 
+		System.out.println("BinarySearchTree's the biggest data: "+ binaryST.getBiggestData().getData());
 	}
 }
