@@ -3,6 +3,8 @@ package com.unit.test.sort;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import com.data.structure.BinarySearchTree;
 import com.data.structure.TreeNode;
 
@@ -159,10 +161,13 @@ public class BinarySearchTreeTest {
 		binaryST.insert(new TreeNode(38));
 		binaryST.insert(new TreeNode(45));
 		
-		Integer[] integerArary = binaryST.getDatasInOrder();
+		Integer[] integerArary = binaryST.getDataInOrder();
 		
 		Integer[] expected = new Integer[]{18,20,22,30,38,40,45};
 		
 		assertEquals(expected, integerArary);
 	}
+
+
+	
 }
