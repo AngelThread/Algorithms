@@ -93,4 +93,30 @@ public class BinarySearchTreeTest {
 
 		assertEquals(new Integer(47), binarySearchT.getRoot().getRight().getRight().getData());
 	}
+	
+	@Test
+	public void testBinarySearchTreeSmallestRoot(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		assertEquals(new Integer(30), binarySearchT.getSmallestData().getData());
+	}
+	
+	@Test
+	public void testBinarySearchTreeSmallest(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(45);
+
+		assertEquals(new Integer(30), binarySearchT.getSmallestData().getData());
+	}
+	
+	@Test
+	public void testBinarySearchTreeSmallestData(){
+		BinarySearchTree binarySearchT = new BinarySearchTree();
+		binarySearchT.insert(30);
+		binarySearchT.insert(45);
+		binarySearchT.insert(20);
+
+		assertEquals(new Integer(20), binarySearchT.getSmallestData().getData());
+	}
 }

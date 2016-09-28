@@ -151,19 +151,28 @@ public class BinarySearchTree {
 
 	}
 
-	private TreeNode findForDelete(int data, TreeNode root) {
 
-		if (data == root.getData())
-			return root;
-
-		if (root.getLeft() != null && root.getData() > data) {
-			return find(data, root.getLeft());
-		}
-
-		if (root.getRight() != null) {
-			return find(data, root.getRight());
-		}
-
-		return null;
+	
+	public TreeNode getSmallestData(){
+		return getSmallestData(this.root);
+	}
+	private TreeNode getSmallestData(TreeNode root){
+		
+		if(this.root == null) return null;
+		
+		if(root.getLeft() != null)
+		return getSmallestData(root.getLeft());
+		return root;	
+	}
+	
+	public TreeNode getBiggestData(){
+		return getBiggestData(this.root);
+	}
+	
+	private TreeNode getBiggestData(TreeNode root){
+		if(this.root == null) return null;
+		if(root.getRight() !=null)
+		return getBiggestData(root.getRight());
+		return root;
 	}
 }

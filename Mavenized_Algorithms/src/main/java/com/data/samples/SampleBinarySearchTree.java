@@ -16,7 +16,8 @@ public class SampleBinarySearchTree {
 		binaryST.insert(new TreeNode(22));
 		binaryST.insert(new TreeNode(38));
 		binaryST.insert(new TreeNode(45));
-		
+		System.out.println("BinarySearchTree's the smallest data "+binaryST.getSmallestData().getData());
+	
 		System.out.println(binaryST.getRoot().getRight().getData()); //40
 		System.out.println(binaryST.getRoot().getRight().getRight().getData()); //45
 		System.out.println(binaryST.getRoot().getRight().getLeft().getData()); // 38
@@ -36,7 +37,8 @@ public class SampleBinarySearchTree {
 
 		}
 		
-
+		System.out.println("BinarySearchTree's the smallest data "+binaryST.getSmallestData().getData());
+		
 		System.out.println(binaryST.getRoot().getRight().getData()); //40
 		System.out.println(binaryST.getRoot().getRight().getRight().getData()); //45
 		System.out.println(binaryST.getRoot().getRight().getLeft().getData()); // 38
@@ -54,7 +56,8 @@ public class SampleBinarySearchTree {
 		System.out.println(binaryST.getRoot().getLeft().getData()); //20
 		System.out.println(binaryST.getRoot().getLeft().getRight().getData()); //22
 		System.out.println(binaryST.getRoot().getLeft().getLeft().getData()); //18
-		
+
+		System.out.println("BinarySearchTree's the smallest data "+binaryST.getSmallestData().getData());
 
 	}
 }
