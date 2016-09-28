@@ -168,6 +168,42 @@ public class BinarySearchTreeTest {
 		assertArrayEquals(expected, integerArary);
 	}
 
+	@Test
+	public void testPreOrderTraversalOfBST(){
+		BinarySearchTree binaryST = new BinarySearchTree();
 
+		binaryST.insert(new TreeNode(30));
+		binaryST.insert(new TreeNode(20));
+		binaryST.insert(new TreeNode(40));
+		binaryST.insert(new TreeNode(18));
+		binaryST.insert(new TreeNode(22));
+		binaryST.insert(new TreeNode(38));
+		binaryST.insert(new TreeNode(45));
+		
+		Integer[] integerArary = binaryST.getDataPreOrder();
+		
+		Integer[] expected = new Integer[]{30,20,18,22,40,38,45};
+		
+		assertArrayEquals(expected, integerArary);
+	}
+	
+	@Test
+	public void testPostOrderTraversalOfBST(){
+		BinarySearchTree binaryST = new BinarySearchTree();
+
+		binaryST.insert(new TreeNode(30));
+		binaryST.insert(new TreeNode(20));
+		binaryST.insert(new TreeNode(40));
+		binaryST.insert(new TreeNode(18));
+		binaryST.insert(new TreeNode(22));
+		binaryST.insert(new TreeNode(38));
+		binaryST.insert(new TreeNode(45));
+		
+		Integer[] integerArary = binaryST.getDataPostOrder();
+		
+		Integer[] expected = new Integer[]{18,22,20,38,45,40,30};
+		
+		assertArrayEquals(expected, integerArary);
+	}
 	
 }

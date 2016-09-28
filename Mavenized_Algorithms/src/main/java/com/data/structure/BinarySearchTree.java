@@ -62,10 +62,10 @@ public class BinarySearchTree {
 	public TreeNode getRoot() {
 		return root;
 	}
-	
-	private TreeNode findSubTree(TreeNode currentNode, TreeNode parentNode, boolean isRight){
+
+	private TreeNode findSubTree(TreeNode currentNode, TreeNode parentNode, boolean isRight) {
 		TreeNode processorNode = currentNode.getRight();
-		
+
 		while (processorNode.getLeft() != null) {
 			processorNode = processorNode.getLeft();
 		}
@@ -88,14 +88,14 @@ public class BinarySearchTree {
 				oldRight = processorNode.getRight();
 				parentNode.setLeft(oldRight);
 			}
-			if(processorNode.getData() != currentNode.getRight().getData())
-			processorNode.setRight(currentNode.getRight());
+			if (processorNode.getData() != currentNode.getRight().getData())
+				processorNode.setRight(currentNode.getRight());
 			currentNode.setLeft(null);
 			currentNode.setRight(null);
 
 		}
 		return currentNode;
-		
+
 	}
 
 	public TreeNode delete(int data, TreeNode currentNode, TreeNode parentNode, boolean isRight) {
@@ -153,51 +153,109 @@ public class BinarySearchTree {
 		}
 
 	}
-	
-	public TreeNode getSmallestData(){
+
+	public TreeNode getSmallestData() {
 		return getSmallestData(this.root);
 	}
-	private TreeNode getSmallestData(TreeNode root){
-		
-		if(this.root == null) return null;
-		
-		if(root.getLeft() != null)
-		return getSmallestData(root.getLeft());
-		return root;	
-	}
-	
-	public TreeNode getBiggestData(){
-		return getBiggestData(this.root);
-	}
-	
-	private TreeNode getBiggestData(TreeNode root){
-		if(this.root == null) return null;
-		if(root.getRight() !=null)
-		return getBiggestData(root.getRight());
+
+	private TreeNode getSmallestData(TreeNode root) {
+
+		if (this.root == null)
+			return null;
+
+		if (root.getLeft() != null)
+			return getSmallestData(root.getLeft());
 		return root;
 	}
-	public Integer[] getDataInOrder( ){
-		
-		List<Integer> integerList = new ArrayList<Integer>();
-		getDataInOrder(this.root, integerList);
-		
-		return integerList.toArray(new Integer[0]);
-		
+
+	public TreeNode getBiggestData() {
+		return getBiggestData(this.root);
 	}
 
-	private List<Integer> getDataInOrder(TreeNode rootNode, List<Integer> integerList ){
-		if(this.root == null) return null;
-		
-		if(rootNode.getLeft() !=null){
+	private TreeNode getBiggestData(TreeNode root) {
+		if (this.root == null)
+			return null;
+		if (root.getRight() != null)
+			return getBiggestData(root.getRight());
+		return root;
+	}
+
+	public Integer[] getDataInOrder() {
+
+		List<Integer> integerList = new ArrayList<Integer>();
+		getDataInOrder(this.root, integerList);
+
+		return integerList.toArray(new Integer[0]);
+
+	}
+
+	private List<Integer> getDataInOrder(TreeNode rootNode, List<Integer> integerList) {
+		if (this.root == null)
+			return null;
+
+		if (rootNode.getLeft() != null) {
 			getDataInOrder(rootNode.getLeft(), integerList);
 		}
 		integerList.add(rootNode.getData());
-		
-		if(rootNode.getRight() !=null){
+
+		if (rootNode.getRight() != null) {
 			getDataInOrder(rootNode.getRight(), integerList);
 		}
-		
+
 		return integerList;
-		
+
+	}
+
+	public Integer[] getDataPreOrder() {
+
+		List<Integer> integerList = new ArrayList<Integer>();
+		getDataPreOrder(this.root, integerList);
+
+		return integerList.toArray(new Integer[0]);
+
+	}
+
+	private List<Integer> getDataPreOrder(TreeNode rootNode, List<Integer> integerList) {
+		if (this.root == null)
+			return null;
+
+		integerList.add(rootNode.getData());
+
+		if (rootNode.getLeft() != null) {
+			getDataPreOrder(rootNode.getLeft(), integerList);
+		}
+
+		if (rootNode.getRight() != null) {
+			getDataPreOrder(rootNode.getRight(), integerList);
+		}
+
+		return integerList;
+
+	}
+	public Integer[] getDataPostOrder() {
+
+		List<Integer> integerList = new ArrayList<Integer>();
+		getDataPostOrder(this.root, integerList);
+
+		return integerList.toArray(new Integer[0]);
+
+	}
+	
+	private List<Integer> getDataPostOrder(TreeNode rootNode, List<Integer> integerList) {
+		if (this.root == null)
+			return null;
+
+
+		if (rootNode.getLeft() != null) {
+			getDataPostOrder(rootNode.getLeft(), integerList);
+		}
+
+		if (rootNode.getRight() != null) {
+			getDataPostOrder(rootNode.getRight(), integerList);
+		}
+		integerList.add(rootNode.getData());
+
+		return integerList;
+
 	}
 }
