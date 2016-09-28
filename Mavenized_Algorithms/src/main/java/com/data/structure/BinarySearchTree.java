@@ -166,4 +166,16 @@ public class BinarySearchTree {
 
 		return null;
 	}
+	
+	public TreeNode getSmallestData(){
+		return getSmallestData(this.root);
+	}
+	private TreeNode getSmallestData(TreeNode root){
+		
+		if(this.root == null) return null;
+		
+		if(root.getLeft() != null)
+		return getSmallestData(root.getLeft());
+		return root;	
+	}
 }
