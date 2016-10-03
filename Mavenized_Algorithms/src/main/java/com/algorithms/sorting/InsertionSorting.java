@@ -2,7 +2,7 @@ package com.algorithms.sorting;
 
 public class InsertionSorting<T> {
 
-	public void sortByInsertion(int... sortMePlease) {
+	public static void sortByInsertion(int... sortMePlease) {
 
 		for (int i = 0; i < sortMePlease.length; i++) {
 
