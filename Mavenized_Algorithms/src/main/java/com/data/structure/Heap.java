@@ -59,6 +59,7 @@ public class Heap<E extends Comparable<E>> {
 	}
 	public int getSize() {
 		return size;
+		
 	}
 
 	public void delete(E elementWhatLookingFor){
