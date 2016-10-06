@@ -23,8 +23,16 @@ public class Heap<E extends Comparable<E>> {
 			return;
 		}
 		if(isFull()) return;
-		arrayLocal[elementNumb] = e;
-		reArrenga(elementNumb);
+		int  availableIndex = elementNumb; // Array was full but then on element deleted from the middle.
+		if(arrayLocal[elementNumb] != null){
+			for (int i = 0; i < arrayLocal.length; i++) {
+				if(arrayLocal[i] == null){
+					availableIndex = i;
+				}
+			}
+		}
+		arrayLocal[availableIndex] = e;
+		reArrenga(availableIndex);
 		elementNumb++;
 
 	}
@@ -66,6 +74,7 @@ public class Heap<E extends Comparable<E>> {
 		int index = findElement(elementWhatLookingFor);
 		if(index == -1 ) return ;
 		arrayLocal[index]  = null;
+		elementNumb --;
 		if(index*2+2 < arrayLocal.length && arrayLocal[index*2+2] !=null ){
 			reArrenga(index*2+2 );
 		}else if(index*2+1 < arrayLocal.length && arrayLocal[index*2+1] !=null){

@@ -50,7 +50,41 @@ public class TestHeap {
 		Integer[] expecteds = {20,12,15,9,10,8,13};
 		assertArrayEquals(expecteds, localArray);
 	}
-	// TODO test of find method.
+	
+	
+	@Test
+	public void testDelete(){
+		Heap<Integer> heap = new Heap<Integer>(Integer.class,7);
+		heap.add(10);
+		heap.add(15);
+		heap.add(8);
+		heap.add(9);
+		heap.add(12);
+		heap.add(13);
+		heap.add(20);
+		heap.delete(12);
+		Integer [] localArray = heap.getArrayLocal();
+		Integer[] expecteds = {20,10,15,9,null,8,13};
+		assertArrayEquals(expecteds, localArray);
 
-	// TODO test of delete method.
+	}
+	
+	@Test
+	public void testAddAfterDelete(){
+		Heap<Integer> heap = new Heap<Integer>(Integer.class,7);
+		heap.add(10);
+		heap.add(15);
+		heap.add(8);
+		heap.add(9);
+		heap.add(12);
+		heap.add(13);
+		heap.add(20);
+		heap.delete(12);
+		heap.add(12);
+		Integer [] localArray = heap.getArrayLocal();
+		Integer[] expecteds = {20,12,15,9,10,8,13};
+		assertArrayEquals(expecteds, localArray);
+
+	}
+	
 }
