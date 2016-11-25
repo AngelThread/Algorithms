@@ -1,4 +1,7 @@
-package com.data.structure;
+package com.data.samples;
+
+import com.data.structure.LinkedList;
+import com.data.structure.Node;
 
 public class LinkedListSample {
 	

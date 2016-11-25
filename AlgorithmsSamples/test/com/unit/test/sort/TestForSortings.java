@@ -5,7 +5,6 @@ import org.junit.Test;
 import com.algorithms.sorting.BubbleSorting;
 import com.algorithms.sorting.InsertionSorting;
 import com.algorithms.sorting.SelectionSorting;
-
 import static org.junit.Assert.*;
 
 public class TestForSortings {
@@ -22,7 +21,6 @@ public class TestForSortings {
 		for (int i = 0; i < actualArray.length; i++) {
 			System.out.println(actualArray[i]);
 		}
-
 		assertArrayEquals(expectedArray, actualArray);
 
 	}
